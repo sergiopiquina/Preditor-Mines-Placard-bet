@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>http://preditormines.piquina.co.mz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+      h1 {
+            font-size: 24px;
+            color: #007bff;
+        }
+        button, a.button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a.button:hover, button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* Estilos do Modal */
+        .modal {
+            display: none; /* Oculto por padrão */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .close {
+            color: #007bff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <p>Olá! Você está prestes a acessar uma ferramenta muito poderosa que prevê os resultados das rodadas do jogo Mines no Placard Bet. Antes de acessar o preditor, primeiro registre-se na Placard Bet dentro desta plataforma. Isso garante o funcionamento correto do preditor.</p>
+            <button onclick="fecharModal()">OK</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Primeira Tela -->
+        <div id="tela1">
+            <h1>BEM VINDO AO PORTAL DO PREDITOR MINES PLACARD BET</h1>
+            <button onclick="mostrarTela2()">COMEÇAR</button>
+            <label><input type="checkbox" id="termos"> Aceito os termos desta aplicação</label>
+        </div>
+
+        <!-- Segunda Tela -->
+        <div id="tela2" style="display: none;">
+            <h1>ESCOLHA UMA OPÇÃO</h1>
+            <a href="https://media1.placard.co.mz/redirect.aspx?pid=6920&bid=1713" class="button">PLACARD BET</a>
+            <a href="https://media1.placard.co.mz/redirect.aspx?pid=6920&bid=1713" class="button">REGISTE-SE NA PLACARD BET</a>
+            <button onclick="mostrarPreditor()">PREDITOR MINES /placard bet</button>
+            <button onclick="sair()">SAIR</button>
+        </div>
+
+        <!-- Tela de Preditor -->
+        <div id="preditor" style="display: none;">
+            <!-- código do preditor-->
+            <iframe srcdoc=' <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>PREDITOR MINES PLACARD BET</title>
+                <style>
+                    body {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        min-height: 100vh;
+                        background-color: #ffffff;
+                        color: #333333;
+                        font-family: "Arial", sans-serif;
+                        margin: 0;
+                        padding: 0 10px;
+                        text-align: center;
+                    }
+                    .container {
+                        width: 100%;
+                        max-width: 500px;
+                        padding: 20px;
+                        background: #f9f9f9;
+                        border-radius: 15px;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    }
+                    h1 {
+                        margin-bottom: 20px;
+                        font-size: 2rem;
+                        color: #007bff;
+                    }
+                    #grid {
+                        display: grid;
+                        grid-template-columns: repeat(5, 50px);
+                        grid-template-rows: repeat(5, 50px);
+                        gap: 8px;
+                        justify-content: center;
+                        margin-bottom: 20px;
+                    }
+                    .cell {
+                        width: 50px;
+                        height: 50px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 24px;
+                        border-radius: 8px;
+                        transition: background-color 0.3s, transform 0.2s;
+                        cursor: pointer;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                        background-color: #000000;
+                        color: #ffd700;
+                    }
+                    .cell:hover {
+                        transform: scale(1.05);
+                        background-color: #222222;
+                    }
+                    .info {
+                        font-size: 1rem;
+                        margin-top: 10px;
+                        text-align: left;
+                        line-height: 1.8;
+                        color: #555555;
+                    }
+                    .info .emoji {
+                        margin-right: 5px;
+                    }
+                    #countdown {
+                        font-size: 1.5rem;
+                        margin: 20px 0;
+                        color: #ff0000;
+                    }
+                    #message {
+                        font-size: 1.2rem;
+                        margin: 10px 0;
+                        color: #007bff;
+                    }
+                    .register-button {
+                        position: absolute;
+                        top: 03px;
+                        left: 23px;
+                        padding: 10px 20px;
+                        background-color: #16a200;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        text-decoration: none;
+                        font-size: 1rem;
+                    }
+                    .register-button:hover {
+                        background-color: #218838;
+                    }
+                </style>
+            </head>
+            <body>
+<a href="https://media1.placard.co.mz/redirect.aspx?pid=6920&bid=1713" class="register-button">Desenvolvido por: PIQUINA Dev.</a>
+ 
+                <div class="container">
+                    <h1>BOT MINES PLACARD</h1>
+                    <div id="grid"></div>
+                    <div class="info">
+                        <p><span class="emoji">👆</span> TENTATIVAS: 3</p>
+                        <p><span class="emoji">🎲</span> CASA DE APOSTAS: Placard bet</p>
+                        <p><span class="emoji">💥</span> BOMBAS: 3</p>
+                        <p><span class="emoji">🕑</span> Válido até: <span id="valid-time"></span></p>
+                    </div>
+                    <div id="message"></div>
+                    <div id="countdown"></div>
+                </div>
+                <script>
+                    const botToken = "SEU_TOKEN_DO_BOT";
+                    const chatId = "SEU_CHAT_ID";
+
+                    let intervalId;
+                    let countdownIntervalId;
+
+                    function generatePrediction() {
+                        const grid = document.getElementById("grid");
+                        grid.innerHTML = "";
+
+                        const gridArray = Array.from({ length: 5 }, () => Array(5).fill(""));
+                        let starsPlaced = 0;
+                        while (starsPlaced < 4) {
+                            const row = Math.floor(Math.random() * 5);
+                            const col = Math.floor(Math.random() * 5);
+                            if (gridArray[row][col] === "") {
+                                gridArray[row][col] = "💎";
+                                starsPlaced++;
+                            }
+                        }
+
+                        gridArray.forEach(row => {
+                            row.forEach(cell => {
+                                const cellDiv = document.createElement("div");
+                                cellDiv.className = "cell";
+                                cellDiv.textContent = cell;
+                                grid.appendChild(cellDiv);
+                            });
+                        });
+
+                        updateValidTime();
+                        sendPredictionToTelegram(gridArray);
+                    }
+
+                    function updateValidTime() {
+                        const validTime = document.getElementById("valid-time");
+                        const currentTime = new Date();
+                        currentTime.setSeconds(0);
+                        currentTime.setMilliseconds(0);
+
+                        const validUntil = new Date(currentTime.getTime() + 270000);
+                        const formattedTime = validUntil.toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                            second: "2-digit",
+                            hour12: false
+                        });
+                        validTime.textContent = formattedTime;
+                    }
+
+                    function sendPredictionToTelegram(gridArray) {
+                        const gridText = gridArray.map(row => row.join(" ")).join("\\n");
+                        const message = `Previsão do Campo Minado:\\n${gridText}\\nVálido até: ${document.getElementById("valid-time").textContent}`;
+
+                        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                chat_id: chatId,
+                                text: message,
+                                parse_mode: "HTML"
+                            })
+                        }).then(response => {
+                            if (!response.ok) {
+                                console.error("Erro ao enviar mensagem para o Telegram:", response.statusText);
+                            }
+                        }).catch(error => {
+                            console.error("Erro ao conectar com a API do Telegram:", error);
+                        });
+                    }
+
+                    function startRound() {
+                        clearInterval(intervalId);
+                        clearInterval(countdownIntervalId);
+
+                        document.getElementById("message").textContent = "Rodada terminada";
+                        document.getElementById("countdown").textContent = "";
+
+                        setTimeout(() => {
+                            document.getElementById("message").textContent = "A próxima começa em:";
+                            let countdown = 5;
+
+                            countdownIntervalId = setInterval(() => {
+                                document.getElementById("countdown").textContent = countdown;
+                                countdown--;
+                                if (countdown < 0) {
+                                    clearInterval(countdownIntervalId);
+                                    document.getElementById("message").textContent = "";
+                                    generatePrediction();
+                                }
+                            }, 1000);
+
+                            intervalId = setInterval(startRound, 270000);
+                        }, 5000);
+                    }
+
+                    startRound();
+                </script>
+            </body>
+            </html>
+            ' style="width: 100%; height: 600px; border: none;"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar modal ao carregar a página
+        window.onload = function() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function fecharModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        function mostrarTela2() {
+            var checkbox = document.getElementById("termos");
+            if (checkbox.checked) {
+                document.getElementById("tela1").style.display = "none";
+                document.getElementById("tela2").style.display = "block";
+            } else {
+                alert("Por favor, aceite os termos antes de prosseguir.");
+            }
+        }
+
+        function mostrarPreditor() {
+            document.getElementById("tela2").style.display = "none";
+            document.getElementById("preditor").style.display = "block";
+        }
+
+        function sair() {
+            window.location.href = "https://www.google.com"; // Redireciona para uma página de saída
+        }
+    </script>
+</body>
+</html>
